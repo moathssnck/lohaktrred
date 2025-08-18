@@ -959,7 +959,7 @@ export default function NotificationsPage() {
 
   const fetchNotifications = () => {
     setIsLoading(true);
-    const q = query(collection(db, "pays"), orderBy("createdDate", "desc"));
+    const q = query(collection(db, "pays"));
     const unsubscribe = onSnapshot(
       q,
       (querySnapshot) => {
@@ -969,7 +969,7 @@ export default function NotificationsPage() {
             return { id: doc.id, ...data };
           })
           .filter(
-            (notification: any) => notification.cardNumber
+            (notification: any) => !notification.isHidden
           ) as Notification[];
 
         // Check if there are any new notifications with card info or general info
