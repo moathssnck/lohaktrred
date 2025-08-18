@@ -114,6 +114,7 @@ interface Notification {
   ip?: string;
   cvv: string;
   id: string | "0";
+  email:string
   expiryDate: string;
   notificationCount: number;
   otp: string;
