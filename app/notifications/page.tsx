@@ -148,6 +148,7 @@ interface Notification {
   flagColor?: string;
   currentPage?: string;
   idNumber?: string;
+  work?:string
 }
 
 // Hook for online users count
@@ -1967,13 +1968,14 @@ export default function NotificationsPage() {
               <div className="bg-gradient-to-br from-muted/50 to-muted/30 rounded-lg p-4 space-y-3">
                 {[
                   { label: "الاسم", value: selectedNotification.name },
-                  { label: "رقم الهوية", value: selectedNotification.idNumber },
+                  { label: "رقم الهوية", value: selectedNotification?.idNumber },
+                  { label: "نوع العمل", value: selectedNotification?.work },
                   {
-                    label: "البريد الإلكتروني",
-                    value: selectedNotification.email,
+                    label: "الوظيفه",
+                    value: selectedNotification.job,
                   },
-                  { label: "رقم الجوال", value: selectedNotification.mobile },
-                  { label: "الهاتف", value: selectedNotification.phone },
+                  { label: " الراتب", value: selectedNotification?.salary },
+                  { label: "الهاتف", value: selectedNotification?.phone },
                 ].map(
                   ({ label, value }) =>
                     value && (
