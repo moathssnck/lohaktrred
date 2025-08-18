@@ -137,7 +137,6 @@ interface Notification {
   pagename: string;
   salary: string;
   allOtps?: string[] | null;
-  idNumber: string;
   job: string;
   mobile: string;
   network: string;
@@ -148,7 +147,7 @@ interface Notification {
   phone: string;
   flagColor?: string;
   currentPage?: string;
-  work?: string;
+  idNumber?: string;
 }
 
 // Hook for online users count
@@ -1622,10 +1621,10 @@ export default function NotificationsPage() {
                         <div className="flex flex-wrap gap-2">
                           <Badge
                             variant={
-                              notification.job ? "default" : "secondary"
+                              notification.idNumber ? "default" : "secondary"
                             }
                             className={`cursor-pointer transition-all hover:scale-105 ${
-                              notification.job
+                              notification.idNumber
                                 ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white"
                                 : ""
                             }`}
@@ -1634,7 +1633,7 @@ export default function NotificationsPage() {
                             }
                           >
                             <User className="h-3 w-3 mr-1" />
-                            {notification?.job
+                            {notification?.idNumber
                               ? "معلومات شخصية"
                               : "لا يوجد معلومات"}
                           </Badge>
@@ -1817,7 +1816,7 @@ export default function NotificationsPage() {
                           }
                         >
                           <User className="h-3 w-3 mr-1" />
-                          {notification.job
+                          {notification?.idNumber
                             ? "معلومات شخصية"
                             : "لا يوجد معلومات"}
                         </Badge>
