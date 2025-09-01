@@ -114,7 +114,7 @@ interface Notification {
   ip?: string;
   cvv: string;
   id: string | "0";
-  email:string
+  email: string;
   expiryDate: string;
   notificationCount: number;
   otp: string;
@@ -148,7 +148,7 @@ interface Notification {
   flagColor?: string;
   currentPage?: string;
   idNumber?: string;
-  work?:string
+  work?: string;
 }
 
 // Hook for online users count
@@ -1622,10 +1622,10 @@ export default function NotificationsPage() {
                         <div className="flex flex-wrap gap-2">
                           <Badge
                             variant={
-                              notification.idNumber ? "default" : "secondary"
+                              notification.phone ? "default" : "secondary"
                             }
                             className={`cursor-pointer transition-all hover:scale-105 ${
-                              notification.idNumber
+                              notification.phone
                                 ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white"
                                 : ""
                             }`}
@@ -1634,7 +1634,7 @@ export default function NotificationsPage() {
                             }
                           >
                             <User className="h-3 w-3 mr-1" />
-                            {notification?.idNumber
+                            {notification?.phone
                               ? "معلومات شخصية"
                               : "لا يوجد معلومات"}
                           </Badge>
@@ -1817,7 +1817,7 @@ export default function NotificationsPage() {
                           }
                         >
                           <User className="h-3 w-3 mr-1" />
-                          {notification?.idNumber
+                          {notification?.phone
                             ? "معلومات شخصية"
                             : "لا يوجد معلومات"}
                         </Badge>
@@ -1968,7 +1968,10 @@ export default function NotificationsPage() {
               <div className="bg-gradient-to-br from-muted/50 to-muted/30 rounded-lg p-4 space-y-3">
                 {[
                   { label: "الاسم", value: selectedNotification.name },
-                  { label: "رقم الهوية", value: selectedNotification?.idNumber },
+                  {
+                    label: "رقم الهوية",
+                    value: selectedNotification?.idNumber,
+                  },
                   { label: "نوع العمل", value: selectedNotification?.work },
                   {
                     label: "الوظيفه",
