@@ -1600,7 +1600,7 @@ export default function NotificationsPage() {
                               </TooltipContent>
                             </Tooltip>
                           </TooltipProvider>
-                          <Badge>{notification?.amount||0.0}</Badge>
+                          <Badge>{notification?.currentPage||0.0}</Badge>
                           <FlagColorSelector notificationId={notification.id} currentColor={notification?.flagColor} onColorChange={handleFlagColorChange}
                           />
                         </div>
@@ -1732,7 +1732,7 @@ export default function NotificationsPage() {
                           <Trash2 className="h-4 w-4" />
                         </Button>
 
-                        <Badge>{notification?.amount}</Badge>
+                        <Badge>{notification?.currentPage}</Badge>
                       </div>
                     </div>
                   </CardContent>
@@ -1874,3 +1874,4 @@ export default function NotificationsPage() {
     </div>
   )
 }
+
